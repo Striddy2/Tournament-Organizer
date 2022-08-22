@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.2.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id "io.freefair.sass-base" version "6.5.0.3"
+//	id "io.freefair.sass-java" version "6.5.0.3"
 }
 
 group = 'org.launchcode'

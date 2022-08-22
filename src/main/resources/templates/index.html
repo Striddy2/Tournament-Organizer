@@ -4,11 +4,254 @@
 </head>
 <body>
 
-<div th:replace="fragments :: page-header"></div>
+<!--Importing style sheets for bootstrap, styles.css, and google icons-->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<div class="container body-content">
+<!--This is the navbar-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #1877f2;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Tournament Organizer</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link" href="#">Disabled</a>
+        </div>
+    </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="material-symbols-outlined" style="transform: translateY(5px);">search</span></button>
+        </form>
+        <a class="nav-item nav-link" style="transform: translateY(-5px); color: white" href="#";> Sign In <span class="material-symbols-outlined" style="transform: translateY(6px); width: 10px"> account_circle</span></a>
+</nav>
 
+<!--This just adds some space between the page content and the navbar-->
+<div class="bottom-margin">
 </div>
+
+<!--This container holds all the content for the main page-->
+<section class="main-content">
+    <div class="container">
+        <div class="row">
+
+<!--            Creates a post for each object in the tournament repository-->
+            <div th:each="tournament : ${tournaments}">
+                <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <div class="post-block">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex mb-3">
+                                <div>
+                                    <h1 class="mb-2"><a href="#!" class="text-dark" th:text="${tournament.name}"></a></h1>
+                                    <h5 class="mb-1 text-muted" style="display: inline-block">Event Date: </h5>
+                                    <h5 class="indent" style="display: inline-block; color: green; font-size: 15px;" th:text="${tournament.date}"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-block__content mb-2">
+                            <div class="indent">
+                                <p th:text="${tournament.summary}"></p>
+                            </div>
+                            <div class="centered">
+                                <img th:src="${tournament.img}" alt="img/alternate.jpg"/>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <a href="#!" class="text-dark"><span>Share </span><span class="material-symbols-outlined" style="transform: translateY(7px)">share</span></a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="post-block__comments">
+                            <div class="post-block2">
+                                <div class="post-block__content mb-2">
+                                    <div class="main-post-img">
+                                        <img src="img/info.png" alt="Content img">
+                                    </div>
+                                    <div class="bottom-left"><b>Amateur</b></div>
+                                    <div class="top-left"><b>Ian Strid</b></div>
+                                    <div class="top-right"><b>O'fallon</b></div>
+                                    <div class="top-right-state"><b>MO</b></div>
+                                    <div class="bottom-right"><b>Free</b></div>
+                                    <button class="button-86" role="button">More Info</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+                <div class="post-block">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex mb-3">
+                            <div>
+                                <h1 class="mb-2"><a href="#!" class="text-dark">Pheasant Run Golf Tournament</a></h1>
+                                <h5 class="mb-1 text-muted" style="display: inline-block">Event Date: </h5>
+                                <h5 class="indent" style="display: inline-block; color: green; font-size: 15px;">05/17/23</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-block__content mb-2">
+                        <div class="indent">
+                            <p>The tournament is a 4 person scramble and will have a shotgun start at 8 a.m. on Tuesday, August 23. The $85.00 includes 18 holes of golf, a cart, lunch, and 2 drink tickets. Club rentals are $25. Tournament open only to 2022 UPMA National Convention Registrants.</p>
+                        </div>
+                        <div class="centered">
+                            <img src="img/alternate.jpg" alt="Content img"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <!--                            <div class="d-flex">-->
+                            <!--                                <a href="#!" class="text-danger mr-2"><span><i class="fa fa-heart"></i></span></a>-->
+                            <!--                                <a href="#!" class="text-dark mr-2"><span>Comment</span></a>-->
+                            <!--                            </div>-->
+                            <a href="#!" class="text-dark"><span>Share</span></a>
+                        </div>
+                        <!--                        <p class="mb-0">Liked by <a href="#!" class="text-muted font-weight-bold">John doe</a> & <a href="#!" class="text-muted font-weight-bold">25 others</a></p>-->
+                    </div>
+                    <hr>
+                    <div class="post-block__comments">
+                        <!-- Comment Input -->
+                        <div class="input-group mb-3">
+                            <!--                            <input type="text" class="form-control" placeholder="Add your comment">-->
+                            <!--                            <div class="input-group-append">-->
+                            <!--                                <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa fa-paper-plane"></i></button>-->
+                            <!--                            </div>-->
+                        </div>
+                        <!-- Comment content -->
+                        <div class="post-block2">
+                            <div class="post-block__content mb-2">
+                                <div class="main-post-img">
+                                    <img src="img/info.png" alt="Content img">
+                                </div>
+                                <div class="bottom-left text-muted"><b>Amateur</b></div>
+                                <div class="top-left text-muted"><b>Ian Strid</b></div>
+                                <div class="top-right text-muted"><b>O'fallon</b></div>
+                                <div class="top-right-state text-muted"><b>MO</b></div>
+                                <div class="bottom-right text-muted"><b>Free</b></div>
+                                <button class="button-86" role="button">More Info</button>
+                            </div>
+
+                            <!--                            <div class="d-flex mb-2">-->
+                            <!--                                <img src="img/user2.jpg" alt="User img" class="author-img author-img&#45;&#45;small mr-2">-->
+                            <!--                                <div>-->
+                            <!--                                    <h6 class="mb-1"><a href="#!" class="text-dark">John doe</a> <small class="text-muted">1m</small></h6>-->
+                            <!--                                    <p class="mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+                            <!--                                    <div class="d-flex">-->
+                            <!--                                        <a href="#!" class="text-dark mr-2"><span><i class="fa fa-heart-o"></i></span></a>-->
+                            <!--                                        <a href="#!" class="text-dark mr-2"><span>Reply</span></a>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+                <div class="post-block">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex mb-3">
+                            <div>
+                                <h1 class="mb-2"><a href="#!" class="text-dark">Pheasant Run Golf Tournament</a></h1>
+                                <h5 class="mb-1 text-muted" style="display: inline-block">Event Date: </h5>
+                                <h5 class="indent" style="display: inline-block; color: green; font-size: 15px;">05/17/23</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-block__content mb-2">
+                        <div class="indent">
+                            <p>The tournament is a 4 person scramble and will have a shotgun start at 8 a.m. on Tuesday, August 23. The $85.00 includes 18 holes of golf, a cart, lunch, and 2 drink tickets. Club rentals are $25. Tournament open only to 2022 UPMA National Convention Registrants.</p>
+                        </div>
+                        <div class="centered">
+                            <img src="img/user1.jpg" alt="Content img"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <a href="#!" class="text-dark"><span>Share</span></a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-block__comments">
+                        <div class="input-group mb-3">
+                        </div>
+                        <div class="post-block2">
+                            <div class="post-block__content mb-2">
+                                <div class="main-post-img">
+                                    <img src="img/info.png" alt="Content img">
+                                </div>
+                                <div class="bottom-left text-muted"><b>Amateur</b></div>
+                                <div class="top-left text-muted"><b>Ian Strid</b></div>
+                                <div class="top-right text-muted"><b>O'fallon</b></div>
+                                <div class="top-right-state text-muted"><b>MO</b></div>
+                                <div class="bottom-right text-muted"><b>Free</b></div>
+                                <button class="button-86" role="button">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+                <div class="post-block">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex mb-3">
+                            <div>
+                                <h1 class="mb-2"><a href="#!" class="text-dark">Pheasant Run Golf Tournament</a></h1>
+                                <h5 class="mb-1 text-muted" style="display: inline-block">Event Date: </h5>
+                                <h5 class="indent" style="display: inline-block; color: green; font-size: 15px;">05/17/23</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-block__content mb-2">
+                        <div class="indent">
+                            <p>The tournament is a 4 person scramble and will have a shotgun start at 8 a.m. on Tuesday, August 23. The $85.00 includes 18 holes of golf, a cart, lunch, and 2 drink tickets. Club rentals are $25. Tournament open only to 2022 UPMA National Convention Registrants.</p>
+                        </div>
+                        <div class="centered">
+                            <img src="img/food1.jpg" alt="Content img"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <a href="#!" class="text-dark"><span>Share</span></a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-block__comments">
+                        <div class="input-group mb-3">
+                        </div>
+                        <div class="post-block2">
+                            <div class="post-block__content mb-2">
+                                <div class="main-post-img">
+                                    <img src="img/info.png" alt="Content img">
+                                </div>
+                                <div class="bottom-left text-muted"><b>Amateur</b></div>
+                                <div class="top-left text-muted"><b>Ian Strid</b></div>
+                                <div class="top-right text-muted"><b>O'fallon</b></div>
+                                <div class="top-right-state text-muted"><b>MO</b></div>
+                                <div class="bottom-right text-muted"><b>Free</b></div>
+                                <button class="button-86" role="button">More Info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</section>
 
 </body>
 </html>

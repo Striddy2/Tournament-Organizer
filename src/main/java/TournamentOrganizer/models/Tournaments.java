@@ -3,7 +3,8 @@ package TournamentOrganizer.models;
 import javax.persistence.Entity;
 
 @Entity
-public class Tournaments {
+public class Tournaments extends AbstractEntity {
 
-    private String name;
+    public Tournaments() {
+    }
 }
