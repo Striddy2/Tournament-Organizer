@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
+<head>
+    <title th:text="'Tournament Organizer' + ${title == null ? '' : ' :: ' + title}">Tournament Organizer</title>
 </head>
 <body>
 
@@ -41,24 +42,24 @@
         <div class="row">
 
 <!--            Creates a post for each object in the tournament repository-->
-            <div th:each="tournament : ${tournaments}">
+            <div th:each="event : ${events}">
                 <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
                     <div class="post-block">
                         <div class="d-flex justify-content-between">
                             <div class="d-flex mb-3">
                                 <div>
-                                    <h1 class="mb-2"><a href="#!" class="text-dark" th:text="${tournament.name}"></a></h1>
+                                    <h1 class="mb-2"><a href="#!" class="text-dark" th:text="${event.name}"></a></h1>
                                     <h5 class="mb-1 text-muted" style="display: inline-block">Event Date: </h5>
-                                    <h5 class="indent" style="display: inline-block; color: green; font-size: 15px;" th:text="${tournament.date}"></h5>
+                                    <h5 class="indent" style="display: inline-block; color: green; font-size: 15px;" th:text="${event.eventDetails.date}"></h5>
                                 </div>
                             </div>
                         </div>
                         <div class="post-block__content mb-2">
                             <div class="indent">
-                                <p th:text="${tournament.summary}"></p>
+                                <p th:text="${event.eventDetails.summary}"></p>
                             </div>
                             <div class="centered">
-                                <img th:src="${tournament.img}" alt="img/alternate.jpg"/>
+                                <img src="img/alternate.jpg" alt="img/alternate.jpg"/>
                             </div>
                         </div>
                         <div class="mb-3">
@@ -73,11 +74,11 @@
                                     <div class="main-post-img">
                                         <img src="img/info.png" alt="Content img">
                                     </div>
-                                    <div class="bottom-left"><b>Amateur</b></div>
+                                    <div class="bottom-left"><b th:text="${event.eventDetails.competitiveLevel}">Amateur</b></div>
                                     <div class="top-left"><b>Ian Strid</b></div>
                                     <div class="top-right"><b>O'fallon</b></div>
                                     <div class="top-right-state"><b>MO</b></div>
-                                    <div class="bottom-right"><b>Free</b></div>
+                                    <div class="bottom-right"><b th:text="${event.eventDetails.entryFee}"></b></div>
                                     <button class="button-86" role="button">More Info</button>
                                 </div>
                             </div>

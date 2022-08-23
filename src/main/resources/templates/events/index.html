@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<div th:replace="fragments :: page-header"></div>
+<h1 th:replace="fragments :: title" class="text-warning">All Events</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+
+<p th:unless="${events} and ${events.size()}">No Events!</p>
+
+<table class="table table-bordered" style="background-color: black">
+    <thead>
+    <tr style="tr:nth-child(even) {background-color: #f2f2f2; color: white} ">
+        <th class="text-white" style="color: white">ID</th>
+        <th class="text-white" style="color: white">Name</th>
+        <th class="text-white" style="color: white">Description</th>
+        <th class="text-white" style="color: white">Location</th>
+        <th class="text-white" style="color: white">Competitive Level</th>
+        <th class="text-white" style="color: white">Date</th>
+        <th class="text-white" style="color: white">Summary</th>
+        <th class="text-white" style="color: white">Entry Fee</th>
+
+    </tr>
+    </thead>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.id}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.name}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.eventDetails.description}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.eventDetails.location}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.eventDetails.competitiveLevel}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.eventDetails.date}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.eventDetails.summary}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.eventDetails.entryFee}" class="text-white bg-dark" style="color: white"></td>
+        <td><a  class="nav-link" th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
