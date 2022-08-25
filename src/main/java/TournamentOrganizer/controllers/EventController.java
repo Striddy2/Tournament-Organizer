@@ -1,7 +1,6 @@
 package TournamentOrganizer.controllers;
 
 import TournamentOrganizer.models.Event;
-import TournamentOrganizer.models.EventDetails;
 import TournamentOrganizer.models.data.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +22,7 @@ public class EventController {
     public String displayEvents(
             Model model
     ) {
-        String sendToTemplateViewEventsIndex = "index";
+        String sendToTemplateViewEventsIndex = "events/index";
 
         model.addAttribute("title", "All Events");
         model.addAttribute("events", eventRepository.findAll());
@@ -128,14 +127,17 @@ public class EventController {
             String competitiveLevel,
             String date,
             String summary,
-            String entryFee,
-            EventDetails eventDetails
+            String entryFee
     ) {
         Optional<Event> event = eventRepository.findById(eventId);
         Event eventToBeEdit = event.get();
         eventToBeEdit.setName(name);
-        // Name is now able to be edited, but I am still working on how to update the
-        // fields in EventDetails.
+        eventToBeEdit.setDescription(description);
+        eventToBeEdit.setLocation(location);
+        eventToBeEdit.setCompetitiveLevel(competitiveLevel);
+        eventToBeEdit.setDate(date);
+        eventToBeEdit.setSummary(summary);
+        eventToBeEdit.setEntryFee(entryFee);
         eventRepository.save(eventToBeEdit);
         String redirect = "redirect:";
         return redirect;

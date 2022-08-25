@@ -28,12 +28,12 @@
     <tr th:each="event : ${events}">
         <td th:text="${event.id}" class="text-white bg-dark" style="color: white"></td>
         <td th:text="${event.name}" class="text-white bg-dark" style="color: white"></td>
-        <td th:text="${event.eventDetails.description}" class="text-white bg-dark" style="color: white"></td>
-        <td th:text="${event.eventDetails.location}" class="text-white bg-dark" style="color: white"></td>
-        <td th:text="${event.eventDetails.competitiveLevel}" class="text-white bg-dark" style="color: white"></td>
-        <td th:text="${event.eventDetails.date}" class="text-white bg-dark" style="color: white"></td>
-        <td th:text="${event.eventDetails.summary}" class="text-white bg-dark" style="color: white"></td>
-        <td th:text="${event.eventDetails.entryFee}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.description}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.location}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.competitiveLevel}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.date}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.summary}" class="text-white bg-dark" style="color: white"></td>
+        <td th:text="${event.entryFee}" class="text-white bg-dark" style="color: white"></td>
         <td><a  class="nav-link" th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a></td>
     </tr>
 

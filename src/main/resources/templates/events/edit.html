@@ -21,44 +21,44 @@
 
     <div class="form-group">
         <label>Description
-            <input type="text" th:field="${event.eventDetails.description}" class="form-control" />
+            <input type="text" th:field="${event.description}" class="form-control" />
         </label>
-        <p style="color: white" class="error" th:errors="${event.eventDetails.description}"></p>
+        <p style="color: white" class="error" th:errors="${event.description}"></p>
     </div>
 
     <div class="form-group">
         <label>Location
-            <input type="text" th:field="${event.eventDetails.location}" class="form-control" />
+            <input type="text" th:field="${event.location}" class="form-control" />
         </label>
-        <p style="color: white" class="error" th:errors="${event.eventDetails.location}"></p>
+        <p style="color: white" class="error" th:errors="${event.location}"></p>
     </div>
 
     <div class="form-group">
         <label>Competitive Level
-            <input type="text" th:field="${event.eventDetails.competitiveLevel}" class="form-control" />
+            <input type="text" th:field="${event.competitiveLevel}" class="form-control" />
         </label>
-        <p style="color: white" class="error" th:errors="${event.eventDetails.competitiveLevel}"></p>
+        <p style="color: white" class="error" th:errors="${event.competitiveLevel}"></p>
     </div>
 
     <div class="form-group">
         <label>Date
-            <input type="date" pattern="dd/MM/yyyy" th:field="${event.eventDetails.date}" class="form-control" />
+            <input type="date" pattern="dd/MM/yyyy" th:field="${event.date}" class="form-control" />
         </label>
-        <p style="color: white" class="error" th:errors="${event.eventDetails.date}"></p>
+        <p style="color: white" class="error" th:errors="${event.date}"></p>
     </div>
 
     <div>
         <label>Summary
-            <input type="text" th:field="${event.eventDetails.summary}" class="form-control" />
+            <input type="text" th:field="${event.summary}" class="form-control" />
         </label>
-        <p style="color: white" class="error" th:errors="${event.eventDetails.summary}"></p>
+        <p style="color: white" class="error" th:errors="${event.summary}"></p>
     </div>
 
     <div>
         <label>Entry Fee
-            <input type="text"  min="0.00" max="10000.00" step="0.01" th:field="${event.eventDetails.entryFee}" class="form-control" />
+            <input type="text"  min="0.00" max="10000.00" step="0.01" th:field="${event.entryFee}" class="form-control" />
         </label>
-        <p style="color: white" class="error" th:errors="${event.eventDetails.entryFee}"></p>
+        <p style="color: white" class="error" th:errors="${event.entryFee}"></p>
     </div>
 
     <div class="form-group"><br>
