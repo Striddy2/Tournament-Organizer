@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="" en xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<link th:href="@{/css/signup.css}" rel="stylesheet" />
+
+<div th:replace="fragments :: page-header"></div>
+
+<body class="container">
+
+<div class="signup col col-xl-12"> <!--ask Ian about this-->
+
+    <h1>Don't have an account?</h1>
+        <br>
+
+    <center>
+        <h4 style="color: #A93226 ">Register below!</h4>
+    </center>
+        <br>
+
+    <form method="post" th:action="@{/registrationPage}">
+
+        <div class="form-group">
+            <P th:text="${lengthError}" style="color: red;"></P>
+            <input type="text" name="username" value="Name" class="form-control"> <!--make labels-->
+        </div>
+
+        <div class="form-group">
+            <p th:text="${emailError}" style="color: red;"></p>
+            <input type="text" name="emailAddress" value="Email Address" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <P th:text="${PasswordMatchError}" style="color: red;"></P>
+            <input type="text" name="password" value="Password" class="form-control">
+        </div>
+
+        <div>
+            <input type="text" name="verifyPassword" value="Re-type Password" class="form-control">
+        </div>
+            <br>
+
+        <button class="btn btn-success">
+                Register
+        </button>
+
+    </form>
+
+</div>
+
+</body>
